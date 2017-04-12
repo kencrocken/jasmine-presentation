@@ -1,30 +1,45 @@
-.reveal section img {
-    margin: 0;
-    background: transparent;
-    border: none;
-    box-shadow: none;
+$repequityRed: #ff0000;
+
+.reveal {
+
+    section img {
+        margin: 0;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+    }
+
+    p {
+        text-align: left;
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    a {
+        color: $repequityRed;
+        &:hover, &:focus {
+            color: lighten($repequityRed, 15%);
+        }
+    }
+    .controls {
+        div.navigate-left, div.navigate-left.enabled {
+            border-right-color: $repequityRed;
+        }
+        div.navigate-right, div.navigate-right.enabled {
+            border-left-color: $repequityRed;
+        }
+        div.navigate-up, div.navigate-up.enabled {
+            border-bottom-color: $repequityRed;
+        }
+        div.navigate-down, div.navigate-down.enabled {
+            border-top-color: $repequityRed;
+        }
+    }
+
 }
 
-.reveal .controls {
-    div.navigate-left, div.navigate-left.enabled {
-        border-right-color: #ff0000;
-    }
-    div.navigate-right, div.navigate-right.enabled {
-        border-left-color: #ff0000;
-    }
-    div.navigate-up, div.navigate-up.enabled {
-        border-bottom-color: #ff0000;
-    }
-    div.navigate-down, div.navigate-down.enabled {
-        border-top-color: #ff0000;
-    }
-}
 
 
-.reveal p {
-    text-align: left;
-    img {
-        display: block;
-        margin: 0 auto;
-    }
-}
+
