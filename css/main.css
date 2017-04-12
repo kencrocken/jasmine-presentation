@@ -1,0 +1,22 @@
+.reveal section img {
+  margin: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none; }
+.reveal p {
+  text-align: left; }
+  .reveal p img {
+    display: block;
+    margin: 0 auto; }
+.reveal a {
+  color: #ff0000; }
+  .reveal a:hover, .reveal a:focus {
+    color: #ff4d4d; }
+.reveal .controls div.navigate-left, .reveal .controls div.navigate-left.enabled {
+  border-right-color: #ff0000; }
+.reveal .controls div.navigate-right, .reveal .controls div.navigate-right.enabled {
+  border-left-color: #ff0000; }
+.reveal .controls div.navigate-up, .reveal .controls div.navigate-up.enabled {
+  border-bottom-color: #ff0000; }
+.reveal .controls div.navigate-down, .reveal .controls div.navigate-down.enabled {
+  border-top-color: #ff0000; }

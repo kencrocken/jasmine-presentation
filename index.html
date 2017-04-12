@@ -1,12 +1,211 @@
----
-layout: reveal
-title: not used. Use _config.yml!
----
+<!doctype html>
+<html lang="en">
 
-{% for post in site.posts reversed %}
+	<head>
+		<meta charset="utf-8">
+
+		<title>Jasmine</title>
+
+		<meta name="description" content="Jasmine is a behavior-driven development framework for testing JavaScript code.">
+		<meta name="author" content="Ken Crocken">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="reveal.js/css/theme/blood.css" id="theme">
+		<link rel="stylesheet" href="css/styles.css" id="reveal-overrides">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+            <div class="slides">
+
+                
 <section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$" data-notes="^Note:">
 <script type="text/template">
-{{ post.content }}
+!["Jasmine"][jasmine_logo]
+
+[jasmine_logo]: https://jasmine.github.io/images/Jasmine-Horizontal-Large-White.png  "Optional title attribute"
+
 </script>
 </section>
-{% endfor %}
+
+<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$" data-notes="^Note:">
+<script type="text/template">
+## What is Jasmine?
+
+note:
+
+- BDD framework
+- No dependencies on other JS
+- No DOM
+- Easy syntax
+
+
+---
+
+### A behavior-driven development framework for testing JavaScript code.
+
+--
+
+## What is BDD?
+
+* BDD is a software development methodology in which an application is specified and designed by describing how its behavior should appear to an outside observer.  <!-- .element: class="fragment" -->
+
+
+--
+
+## Why test?
+
+Verify that the software behaves as expected.
+
+* Manual QA on a small codebase. <!-- .element: class="fragment" -->
+* As the codebase gets larger - manual QA is more error prone. <!-- .element: class="fragment" -->
+* If a feature or function is removed does every developer remember all of its potential side-effects? <!-- .element: class="fragment" -->
+* Are all developers manually testing in the same way? <!-- .element: class="fragment" -->
+
+--
+
+## Why use Jasmine?
+
+- It does not depend on any other JavaScript frameworks. <!-- .element: class="fragment" -->
+- No DOM required. <!-- .element: class="fragment" -->
+- A clean, obvious syntax so that you can easily write tests. <!-- .element: class="fragment" -->
+
+</script>
+</section>
+
+<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$" data-notes="^Note:">
+<script type="text/template">
+## Test Anatomy
+
+Tests are grouped together in a "test suite."
+Test suites are started with the `describe` function.  
+
+- Accepts a string and function.  
+- The string is a descriptive statement.  
+- The function holds the code for the suite.  
+
+Within the `describe` function we define the "specs." 
+
+--
+
+The `it` function defines our specs.  And is structured like `describe`.
+
+Within the function, we call `expect` and pass an "Actual."  
+The `expect` is chained to a "matcher" - and passed the expectation. 
+
+```js
+
+describe( 'A sample test suite', function() {
+
+    it( 'has a dummy spec to test 2 + 2', function() {
+
+        var four = 2+2;
+        expect( four ).toEqual( 4 );
+
+    });
+
+});
+```
+
+--
+
+## Things you can do.
+
+- Lots of included matchers
+- Create custom matchers
+- Nest tests to group related specs
+- `beforeEach`, `afterEach`
+- Spies!
+
+---
+
+## Spies
+
+Are test double functions that Jasmine can track.  
+
+--
+
+- A spy can stub any function and tracks calls to it and all arguments. <!-- .element: class="fragment" -->  
+- A spy only exists in the describe or it block in which it is defined, and will be removed after each spec. <!-- .element: class="fragment" -->
+- Special matchers for interacting with spies. <!-- .element: class="fragment" -->
+    - `toHaveBeenCalled` : return true if the spy was called 
+    - `toHaveBeenCalledTimes` : will pass if the spy was called the specified number of times 
+    - `toHaveBeenCalledWith` : will return true if the argument list matches any of the recorded calls to the spy 
+</script>
+</section>
+
+<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$" data-notes="^Note:">
+<script type="text/template">
+### Docs
+
+https://jasmine.github.io
+https://jasmine.github.io/2.4/introduction.html
+
+### Tutorial
+
+https://scotch.io/tutorials/testing-angularjs-with-jasmine-and-karma-part-1
+
+</script>
+</section>
+
+
+
+            </div>
+
+		</div>
+
+		<script src="reveal.js/lib/js/head.min.js"></script>
+		<script src="reveal.js/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    
+					{ src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                    
+                    
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
